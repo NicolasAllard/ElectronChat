@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ElectronChat</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/style.css">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="/JS/socket.js"></script>
+</head>
+
+<body>
+    <h1>ElectronChat</h1>
+    <div class='chatbox-wrapper'>
+        <div class='chatbox'></div>
+        <div class='chatbox-input-wrapper'>
+            <div class="chatbox-textbox">
+                <textarea id="txtMessage" rows="1"></textarea>
+            </div>
+            <div class="chatbox-send-button">
+                <img src="IMG/SEND_ICON.png">
+                <span>SEND</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
