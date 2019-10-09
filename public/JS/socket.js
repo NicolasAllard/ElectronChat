@@ -6,11 +6,10 @@ socket.on('user-connected', function(name) {
 });
 
 socket.on('user-connected-message', function(name) {
-    console.log("User " + name + " just connected!");
+    connect(name);
 });
 
-socket.on('add-message', function(data)
-{
+socket.on('add-message', function(data) {
     addMessage(data);
 });
 
@@ -24,4 +23,4 @@ socket.on('user-already-logged', function() {
 
 socket.on('user-disconnected', function(name) {
     disconnect(name);
-})
+});
