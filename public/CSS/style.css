@@ -26,6 +26,9 @@ body {
     background-color: #393e46;
     border-radius: 10px;
     margin-bottom: 20px;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: scroll;
 }
 
 .chatbox-input-wrapper {
@@ -90,4 +93,85 @@ body {
 
 .chatbox-send-button:active {
     background-color: #388e72;
+}
+
+.auth-wrapper {
+    display: flex;
+    padding: 20px;
+}
+
+.auth-input-wrapper {
+    display: flex;
+    background-color: #393e46;
+    height: 50px;
+    border-radius: 10px;
+    flex-direction: row;
+}
+
+.auth-textbox {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.auth-textbox input {
+    display: flex;
+    resize: none;
+    flex: 1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.auth-btn {
+    display: flex;
+}
+
+.auth-btn button {
+    display: flex;
+    background-color: #4ecca3;
+    width: 100px;
+    height: 100%;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    outline: none;
+}
+
+.auth-btn button:hover {
+    background-color: #4bb592;
+}
+
+.auth-btn button:active {
+    background-color: #388e72;
+}
+.chatbox-message {
+    display: flex;
+    flex-direction: row;
+}
+
+.chatbox-message .message {
+    display: flex;
+    text-align: left;
+    word-break: break-all;
+    color: #4ecca3;
+}
+
+.chatbox-message .user {
+    display: flex;
+    margin-right: 15px;
 }

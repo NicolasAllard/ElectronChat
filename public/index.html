@@ -10,18 +10,37 @@
 
 <body>
     <h1>ElectronChat</h1>
-    <div class='chatbox-wrapper'>
-        <div class='chatbox'></div>
-        <div class='chatbox-input-wrapper'>
-            <div class="chatbox-textbox">
-                <textarea id="txtMessage" rows="1"></textarea>
-            </div>
-            <div class="chatbox-send-button">
-                <img src="IMG/SEND_ICON.png">
-                <span>SEND</span>
+
+    <div id="pnlAuth">
+        <div class='auth-wrapper'>
+            <div class="auth-input-wrapper">
+                <div class="auth-textbox">
+                    <input type="text" id="txtName">
+                </div>
+                <div class="auth-btn">
+                    <button type="button" id="btnJoin">Join</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <div id="pnlChat" style="display: none">
+        <div class='chatbox-wrapper'>
+                <div class='chatbox' id="chatbox">
+                </div>
+                <div class='chatbox-input-wrapper'>
+                    <div class="chatbox-textbox">
+                        <textarea id="txtMessage" rows="1"></textarea>
+                    </div>
+                    <div class="chatbox-send-button" id="btnSend">
+                        <img src="IMG/SEND_ICON.png">
+                        <span>SEND</span>
+                    </div>
+                </div>
+            </div>
+    </div>
 </body>
+
+<script defer src="JS/index.js"></script>
 
 </html>
