@@ -11,59 +11,51 @@ server.listen(3000);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res) {
+//Redirect the user to the index if he connects to the site
+app.get('/', function (req, res) {
     res.redirect("/index.html");
 });
 
-app.get('/index.html', function(req, res) {
+//If the user is trying to reach the index, send him the index file
+app.get('/index.html', function (req, res) {
     res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-io.on('connection', function(socket) 
-{
-    socket.on('new-user', function(name) 
-    {
+//On user connection
+io.on('connection', function (socket) {
 
-        let user_exists = false;
+    //If the user is new, 
+    socket.on('new-user', function (name) {
+        var user_exists = false;
 
-     for(user in users)
-        {
-            if(users[user] == name)
-            {
-                console.log(users);
+        for (var user in users) {
+            if (users[user] == name) {
                 user_exists = true;
                 break;
             }
         }
 
-        if(user_exists == false)
-        {
-            if(users[socket.id] == undefined)
-            {
+        if (user_exists == false) {
+            if (users[socket.id] == undefined) {
                 users[socket.id] = name;
-                socket.emit('user-connected', name);
-                socket.broadcast.emit('user-connected-message', name);
+                socket.emit('user-connected-input', name);
+                io.emit('user-connected', name);
 
-            }
-            else
-            {
+            } else {
                 socket.emit('user-already-logged');
             }
-        }
-        else
-        {
+        } else {
             socket.emit('user-exists');
         }
 
-        socket.on('send-message', function(data){
-            socket.emit('add-message', data);
-            socket.broadcast.emit('add-message', data);
+        socket.on('send-message', function (data) {
+            io.emit('add-message', data);
 
         });
 
     });
 
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function () {
         socket.broadcast.emit('user-disconnected', users[socket.id]);
         delete users[socket.id];
     });
