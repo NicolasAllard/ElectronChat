@@ -9,7 +9,7 @@
     "author": "Nicolas Allard",
     "license": "ISC",
     "dependencies": {
-        "electron": "^6.0.11",
+        "electron": "^9.4.0",
         "electron-prebuilt": "^1.4.13",
         "express": "^4.17.1",
         "socket.io": "^2.3.0"
